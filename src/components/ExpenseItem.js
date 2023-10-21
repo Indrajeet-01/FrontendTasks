@@ -1,7 +1,8 @@
 import React from 'react'
 import './expenseItem.css'
-import './ExpenseDate'
+
 import ExpenseDate from './ExpenseDate'
+import Card from './Card'
 
 const ExpenseItem = ({expense}) => {
 
