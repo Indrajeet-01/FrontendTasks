@@ -1,24 +1,17 @@
 import React from 'react'
 import './expenseItem.css'
 
-const ExpenseItem = () => {
+const ExpenseItem = ({expense}) => {
   return (
     <>
       
-        <div className='expense-item'>
-          <div>15th October 2023</div>
-          <div className='expense-item__description'>
-            <h2>Shopping</h2>
-            <div className='expense-item__price'>4700</div>
-          </div>
-        </div>
-        <div className='expense-item'>
-          <div>18th October 2023</div>
-          <div className='expense-item__description'>
-            <h2>Food</h2>
-            <div className='expense-item__price'>400</div>
-          </div>
-        </div>
+      <div className='expense-item'>
+      <div>{expense.date.toISOString()}</div>
+      <div className='expense-item__description'>
+        <h2>{expense.title}</h2>
+        <div className='expense-item__price'>${expense.amount}</div>
+      </div>
+    </div>
       
     </>
     
