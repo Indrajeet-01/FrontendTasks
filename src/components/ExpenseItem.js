@@ -5,6 +5,10 @@ import ExpenseDate from './ExpenseDate'
 import Card from './Card'
 
 const ExpenseItem = ({expense}) => {
+  const handleDelete = () => {
+    
+    console.log('deleted')
+  }
 
   return (
     <>
@@ -16,6 +20,7 @@ const ExpenseItem = ({expense}) => {
         <h2>{expense.title}</h2>
         <div className='expense-item__price'>${expense.amount}</div>
       </div>
+      <button onClick={handleDelete}>Delete</button>
     </div>
       
     </>
