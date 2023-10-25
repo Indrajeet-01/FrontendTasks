@@ -2,6 +2,11 @@ import React, {useState} from 'react'
 import './style.css'
 
 const AddExpense = ({onAddExpense}) => {
+  const [isFormVisible, setFormVisibility] = useState(false);
+
+  const toggleFormVisibility = () => {
+    setFormVisibility(!isFormVisible);
+  };
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState(0);
     const [enteredDate, setEnteredDate] = useState('');
@@ -36,7 +41,10 @@ const AddExpense = ({onAddExpense}) => {
 
     }
   return (
-    <div className='new-expense'>AddExpense
+    <div className='new-expense'>
+      <button onClick={toggleFormVisibility}>Add Expense</button>
+      { isFormVisible && ( 
+        
         <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
@@ -56,6 +64,7 @@ const AddExpense = ({onAddExpense}) => {
         <button type='submit'>Add Expense</button>
       </div>
       </form>
+      )}
     </div>
   )
 }
