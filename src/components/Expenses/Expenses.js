@@ -3,17 +3,21 @@ import ExpenseItem from './ExpenseItem';
 import ExpensesFilter from './ExpensesFilter';
 
 const Expenses = ({expenses}) => {
-  const [filteredYear, setFilteredYear] = useState('2020');
+  const [filteredYear, setFilteredYear] = useState('2023');
 
-  const filterChangeHandler = selectedYear => {
+  const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
+
+  const filteredExpenses = expenses.filter(expense => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
       
   return (
     <div className='expenses'>
       <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}></ExpensesFilter>
-        {expenses.map((expense, index) => (
-        <ExpenseItem key={index} expense={expense} ></ExpenseItem>
+        {filteredExpenses.map((expense) => (
+        <ExpenseItem key={expense.id} expense={expense} ></ExpenseItem>
       ))}
     </div>
   )
