@@ -20,7 +20,7 @@ const ExpenseItem = ({expense}) => {
       
       <div className='expense-item__description'>
         <h2>{expense.title}</h2>
-        <div className='expense-item__price'>${amount}</div>
+        <div className='expense-item__price'>${expense.amount}</div>
       </div>
       <button onClick={handleUpdate}>Update</button>
     </div>
